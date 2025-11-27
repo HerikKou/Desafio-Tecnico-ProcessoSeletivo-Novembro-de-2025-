@@ -1,0 +1,7 @@
+CREATE TABLE vendedores(
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(255) NOT NULL,
+    matricula VARCHAR(255) NOT NULL,
+    FOREIGN KEY(venda_id) REFERENCES venda(id)
+)

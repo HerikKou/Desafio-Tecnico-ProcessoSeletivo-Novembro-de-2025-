@@ -1,0 +1,35 @@
+services:
+  bancodedados:
+    image: mysql:8
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: precojusto
+    ports:
+      - "3306:3306"
+    networks:
+      - private-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  backend:
+    build: .
+    image: precojusto:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://bancodedados:3306/precojusto
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ""
+    ports:
+      - "8080:8080"
+    depends_on:
+      bancodedados:
+        condition: service_healthy
+    networks:
+      - private-network
+
+networks:
+  private-network:
+    driver: bridge
