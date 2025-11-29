@@ -7,8 +7,8 @@ CREATE TABLE pato (
 
     preco DECIMAL(10,2) NOT NULL,
 
-    status VARCHAR(20) NOT NULL, 
+    statusvenda VARCHAR(20) NOT NULL,
 
-    venda_id BIGINT NULL, 
-    FOREIGN KEY (venda_id) REFERENCES venda(id)
+    venda_id BIGINT NULL,
+    FOREIGN KEY (venda_id) REFERENCES vendas(id)
 );

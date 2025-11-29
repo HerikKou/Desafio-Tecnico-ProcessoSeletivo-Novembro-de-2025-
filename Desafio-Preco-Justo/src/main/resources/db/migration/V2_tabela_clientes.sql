@@ -1,6 +1,0 @@
-CREATE TABLE clientes(
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    elegivel VARCHAR(20) NOT NULL,
-    FOREIGN KEY(venda_id) REFERENCES venda(id)
-)

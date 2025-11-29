@@ -2,7 +2,7 @@ package Desafio_Preco_Justo.Model;
 
 import java.time.LocalDate;
 import java.util.List;
-
+import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@Table(name = "vendas")
 public class Vendas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

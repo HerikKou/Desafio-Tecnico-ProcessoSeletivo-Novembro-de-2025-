@@ -1,7 +1,12 @@
 package Desafio_Preco_Justo.Model;
-import jakarta.annotation.Generated;
-import jakarta.persistence.Entity;
+import java.math.BigDecimal;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -10,6 +15,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "pato")
 public class Pato{
 @Id
 @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
@@ -20,14 +26,15 @@ private String nome;
 @JoinColumn(name = "mae_id")
 private Pato mae;
 @NotNull(message = "O preço não pode ser nulo")
-private double preco;
-
+private BigDecimal preco;
+@Column(name = "statusvenda")
+@Enumerated(EnumType.STRING)
 private StatusPato statusvenda;
 @ManyToOne
 @JoinColumn(name = "venda_id")
 private Vendas venda;
 public Pato(){}
-public Pato(Long id, String nome, Pato mae, double preco, StatusPato statusvenda) {
+public Pato(Long id, String nome, Pato mae, BigDecimal preco, StatusPato statusvenda) {
     this.id = id;
     this.nome = nome;
     this.mae = mae;
@@ -52,10 +59,10 @@ public Pato getMae() {
 public void setMae(Pato mae) {
     this.mae = mae;
 }
-public double getPreco() {
+public BigDecimal getPreco() {
     return preco;
 }
-public void setPreco(double preco) {
+public void setPreco(BigDecimal preco) {
     this.preco = preco;
 }
 public StatusPato getStatusvenda() {

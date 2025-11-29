@@ -2,8 +2,7 @@ package Desafio_Preco_Justo.Model;
 
 import java.util.List;
 
-
-
+import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -12,6 +11,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
+@Table(name = "vendedor")
 public class Vendedor {
 @Id
 @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)

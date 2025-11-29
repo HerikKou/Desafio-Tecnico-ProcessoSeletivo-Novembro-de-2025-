@@ -17,7 +17,7 @@ services:
 
   backend:
     build: .
-    image: processo-seletivo-novembro
+    image: processoseletivo:latest
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://bancodedados:3306/precojusto
       SPRING_DATASOURCE_USERNAME: root

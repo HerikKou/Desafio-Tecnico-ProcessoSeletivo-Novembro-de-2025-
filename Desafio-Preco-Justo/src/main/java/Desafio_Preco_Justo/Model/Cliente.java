@@ -3,30 +3,31 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 
-
+import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.persistence.Column;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente{
 @Id
 @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
 private Long id;
 @NotBlank(message = "O nome não pode ser vazio")
 private String nome;
-
+@Column(name = "elegivel")
 private boolean elegivelDesconto;
 @OneToMany(mappedBy = "cliente")
 private List<Vendas> vendas;
 public Cliente(){}//construtor vazio
-public Cliente(Long id, String nome, boolean elegivelDesconto, List<Vendas> vendas) {
+public Cliente(Long id, String nome, boolean elegivelDesconto) {
     this.id = id;
     this.nome = nome;
     this.elegivelDesconto = elegivelDesconto;
-    this.vendas = vendas;
+    
 }
 public Long getId() {
     return id;
@@ -46,12 +47,7 @@ public boolean getElegivelDesconto() {
 public void setElegivelDesconto(boolean elegivelDesconto) {
     this.elegivelDesconto = elegivelDesconto;
 }
-public List<Vendas> getVendas() {
-    return vendas;
-}
-public void setVendas(List<Vendas> vendas) {
-    this.vendas = vendas;
-}
+
 
 
 }
