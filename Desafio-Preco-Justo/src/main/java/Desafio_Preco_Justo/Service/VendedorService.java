@@ -21,7 +21,7 @@ public class VendedorService {
     public Vendedor cadastrarVendedor(VendedorDTO vendedordto) {
         Vendedor vendedor = new Vendedor();
         vendedor.setNome(vendedordto.getNome());
-        if(vendedorRepository.existsByCPF(vendedordto.getCpf())){
+        if(vendedorRepository.existsByCpf(vendedordto.getCpf())){
            throw new Existe("Já existe um vendedor com esse CPF");
         }
         if(vendedorRepository.existsByMatricula(vendedordto.getMatricula())){

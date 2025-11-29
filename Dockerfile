@@ -1,5 +1,4 @@
-# Build stage
-# Etapa 1: Build da aplicação usando Maven + JDK 17
+
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 

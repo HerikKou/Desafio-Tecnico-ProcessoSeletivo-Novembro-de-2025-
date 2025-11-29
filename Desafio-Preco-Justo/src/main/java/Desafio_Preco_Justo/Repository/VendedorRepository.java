@@ -9,7 +9,7 @@ import Desafio_Preco_Justo.Model.Vendedor;
 
 public interface VendedorRepository extends JpaRepository<Vendedor, Long> {
 
-    boolean existsByCPF(String cpf);
+    boolean existsByCpf(String cpf);
     boolean existsByMatricula(String matricula);
   @Query("""
     SELECT v.id, v.nome, COUNT(vd.id) AS totalVendas

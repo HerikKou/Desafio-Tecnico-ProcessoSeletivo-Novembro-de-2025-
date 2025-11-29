@@ -2,7 +2,7 @@ package Desafio_Preco_Justo.Model;
 
 import java.util.List;
 
-import org.hibernate.validator.constraints.br.CPF;
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ private Long id;
 private String nome;
 @NotBlank(message = "O CPF não pode ser vazio")
 @Size(min = 11, max = 11, message = "O CPF deve ter 11 dígitos")
-@CPF(message = "CPF inválido")
+
 private String cpf;
 @NotBlank(message = "A matrícula não pode ser vazia")
 @Size(min = 5, max = 20, message = "A matrícula deve ter entre 5 e 20 caracteres")
