@@ -29,7 +29,7 @@ public class PatoService {
     }
       
        pato.setPreco(dto.getPreco());
-       pato.setStatusvenda(dto.getStatus());
+       pato.setStatusvenda(StatusPato.disponivel);
         return patoRepository.save(pato);
     }
     
